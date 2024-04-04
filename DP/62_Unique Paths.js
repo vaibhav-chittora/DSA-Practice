@@ -11,12 +11,14 @@ var uniquePaths = function (m, n) {
     for (let j = 0; j < n; j++) {
         arr[0][j] = 1
     }
-    //iterate over the grid
+    //iterate over the grid[m][n]
     for (let i = 1; i < m; i++) {
         for (let j = 1; j < n; j++) {
+            //particular value = right value + down value
             arr[i][j] = arr[i - 1][j] + arr[i][j - 1]
         }
     }
 
+    //return last element
     return arr[m - 1][n - 1];
 };
