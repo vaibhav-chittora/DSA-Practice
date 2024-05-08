@@ -10,14 +10,19 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
+
+
+//function which invert the whole bonary tree.
+
 function f(root) {
-    if (root == null) return;
 
-    f(root.left);
-    f(root.right);
-    // f(root)
+    if (root === null) return []; //if the tree is empty
 
+    f(root.left); //invert left sub tree(LST)
 
+    f(root.right); //invert right sub tree(RST)
+
+    //invert the whole treee using swap
     let temp = root.left;
     root.left = root.right;
     root.right = temp;
@@ -26,6 +31,5 @@ function f(root) {
 
 var invertTree = function (root) {
     f(root);
-    return root;
-
+    return root; //return
 };
